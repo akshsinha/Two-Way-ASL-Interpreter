@@ -1,20 +1,20 @@
 import os
 import shutil
-def getListOfFiles(dirName):
+def getListOfFiles(dirName): #retrieves files with extension .webp and renames them
     listOfFile = os.listdir(dirName)
     allFiles = list()
     for entry in listOfFile:
         fullPath = os.path.join(dirName, entry)
         if os.path.isdir(fullPath):
-            allFiles = allFiles + getListOfFiles(fullPath)
+            allFiles = allFiles + getListOfFiles(fullPath) #uses recursion
         else:
             if(fullPath.endswith('.webp')):
                 allFiles.append(fullPath)
                 
     return allFiles
 
-dirname = '/home/aniket/Downloads/giphy.com' #Your Full Path of Projects Folder
-dest="/home/aniket/Desktop/Projects/gif_extract/gif_data/"
+dirname ='/Users/akshsinha/Desktop/two-way-sign-language-translator-master/'
+dest="/Users/akshsinha/Desktop/two-way-sign-language-translator-master/gif_data/"
 
 data=getListOfFiles(dirname)
 for i in range(len(data)):
